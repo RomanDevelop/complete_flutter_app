@@ -1,6 +1,7 @@
 import 'package:amazon_clone_tutorial/constants/global_variables.dart';
 import 'package:amazon_clone_tutorial/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone_tutorial/providers/user_provider.dart';
+import 'package:amazon_clone_tutorial/router.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -37,6 +38,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
+        onGenerateRoute: (settings) => generateRoute(settings),
         home: const AuthScreen());
   }
 }

@@ -4,6 +4,7 @@ import 'package:amazon_clone_tutorial/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone_tutorial/constants/error_handling.dart';
 import 'package:amazon_clone_tutorial/constants/global_variables.dart';
 import 'package:amazon_clone_tutorial/constants/utils.dart';
+import 'package:amazon_clone_tutorial/features/home/screens/home_screens.dart';
 import 'package:amazon_clone_tutorial/models/user.dart';
 import 'package:amazon_clone_tutorial/providers/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +29,7 @@ class AuthService {
         address: '',
         type: '',
         token: '',
-        cart: [],
+        //  cart: [],
       );
 
       http.Response res = await http.post(
@@ -71,6 +72,7 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+      print(res.body);
       httpErrorHandle(
         response: res,
         context: context,
@@ -80,7 +82,8 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            BottomBar.routeName,
+            HomeScreen.routeName,
+            // BottomBar.routeName,
             (route) => false,
           );
         },
