@@ -1,5 +1,8 @@
 import 'package:amazon_clone_tutorial/constants/global_variables.dart';
+import 'package:amazon_clone_tutorial/features/account/screens/account_screen.dart';
+import 'package:amazon_clone_tutorial/features/home/screens/home_screens.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 
 class BottomBar extends StatefulWidget {
   static const String routeName = '/actual-home';
@@ -15,9 +18,9 @@ class _BottomBarState extends State<BottomBar> {
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
-    const Text('Home Screen'), //const HomeScreen(),
-    const Text('Account Screen'), //const AccountScreen(),
-    const Text('Cart Screen'), //const CartScreen(),
+    const HomeScreen(),
+    const AccountScreen(), //const AccountScreen(),
+    const Center(child: Text('Cart Screen')), //const CartScreen(),
   ];
 
   void updatePage(int page) {
@@ -79,6 +82,32 @@ class _BottomBarState extends State<BottomBar> {
             label: '',
           ),
           // CART
+          BottomNavigationBarItem(
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: _page == 2
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: badges.Badge(
+                badgeStyle: badges.BadgeStyle(
+                  elevation: 0,
+                  badgeColor: Colors.white,
+                ),
+                badgeContent: Text('2'),
+                child: const Icon(
+                  Icons.shopping_cart_outlined,
+                ),
+              ),
+            ),
+            label: '',
+          ),
         ],
       ),
     );
