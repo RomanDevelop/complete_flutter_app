@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:amazon_clone_tutorial/common/widgets/bottom_bar.dart';
@@ -72,7 +74,6 @@ class AuthService {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print(res.body);
       httpErrorHandle(
         response: res,
         context: context,
@@ -84,7 +85,7 @@ class AuthService {
             context,
             HomeScreen.routeName,
             // BottomBar.routeName,
-            (route) => false,
+            (route) => false, // 3.01
           );
         },
       );
