@@ -83,9 +83,8 @@ class AuthService {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomeScreen.routeName,
-            // BottomBar.routeName,
-            (route) => false, // 3.01
+            BottomBar.routeName,
+            (route) => false,
           );
         },
       );
