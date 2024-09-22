@@ -38,6 +38,8 @@ dependencies:
   shared_preferences: ^2.0.13
   badges: ^3.1.2
   cloudinary_public: ^0.23.1
+  carousel_slider: ^5.0.0
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
