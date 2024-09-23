@@ -59,10 +59,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
   }
 
   void selectImages() async {
-    // var res = await pickImages();
-    // setState(() {
-    //   images = res;
-    // });
+    var res = await pickImages();
+    setState(() {
+      images = res;
+    });
   }
 
   @override
