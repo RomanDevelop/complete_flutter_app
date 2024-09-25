@@ -33,9 +33,9 @@ class ProductDetailsServices {
         response: res,
         context: context,
         onSuccess: () {
-          // User user =
-          //     userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
-          // userProvider.setUserFromModel(user);
+          User user =
+              userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
+          userProvider.setUserFromModel(user);
         },
       );
     } catch (e) {
